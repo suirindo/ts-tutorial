@@ -290,25 +290,56 @@
 
 // never型
 
-enum PageType {
-  ViewProfile,
-  EditProfile,
-  ChangePassword,
+// enum PageType {
+//   ViewProfile,
+//   EditProfile,
+//   ChangePassword,
+// }
+
+// const getTitleText = (type: PageType) => {
+//   switch (type) {
+//     case PageType.ViewProfile:
+//       return 'Setting';
+//     case PageType.EditProfile:
+//       return 'Edit Profile';
+//     case PageType.ChangePassword:
+//       return 'Change Password';
+//     default:
+//       // 決して起きないことをコンパイラに伝えるnever型に代入を行う
+//       // これによって仮に将来PageTypeのenum型に定数が新規で追加された際に
+//       // コンパイル時にエラーが起きるためバグを未然に防ぐ対応を行うことができる
+//       const wrongType: never = type;
+//       throw new Error(`${wrongType} is not in PageType`);
+//   }
+// };
+
+// Optional Chaining
+// nullになりうるsocialというプロパティの型を定義する
+// interface User {
+//   name: string;
+//   social?: {
+//     facebook: boolean;
+//     twitter: boolean;
+//   };
+// }
+
+// let user: User;
+
+// user = { name: 'Tomo', social: { facebook: true, twitter: true } };
+// // trueが出力される
+// console.log(user.social?.facebook);
+
+// user = { name: 'Tomo' };
+// // socialが存在しないケースでも以下のコードは実行時エラーにならない
+// console.log(user.social?.facebook);
+
+// 型ガード
+function addOne(value: number | string) {
+  if (typeof value === 'string') {
+    return Number(value) + 1;
+  }
+  return value + 100;
 }
 
-const getTitleText = (type: PageType) => {
-  switch (type) {
-    case PageType.ViewProfile:
-      return 'Setting';
-    case PageType.EditProfile:
-      return 'Edit Profile';
-    case PageType.ChangePassword:
-      return 'Change Password';
-    default:
-      // 決して起きないことをコンパイラに伝えるnever型に代入を行う
-      // これによって仮に将来PageTypeのenum型に定数が新規で追加された際に
-      // コンパイル時にエラーが起きるためバグを未然に防ぐ対応を行うことができる
-      const wrongType: never = type;
-      throw new Error(`${wrongType} is not in PageType`);
-  }
-};
+console.log(addOne(10)); // 110
+console.log(addOne('20')); // 21
