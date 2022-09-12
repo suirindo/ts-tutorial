@@ -189,18 +189,91 @@
 // const queue = new Queue<number>(); // 数値型を扱うキューを生成。型を外側から指定して振る舞うクラスを記述する
 // queue.push(111);
 // queue.push(112);
-// queue.push('hoge'); // number型ではないためコンパイルエラーとなる
-// let str = 'fuga';
-// str = queue.pop(); // strはnumber型ではないためコンパイル時エラーとなる
-// Union型
-// 変数や引数の宣言時にUnion型を指定して、numberもしくはstringを受け付けることができる
-function printId(id) {
-    console.log(id);
+// // queue.push('hoge'); // number型ではないためコンパイルエラーとなる
+// // let str = 'fuga';
+// // str = queue.pop(); // strはnumber型ではないためコンパイル時エラーとなる
+// // Union型
+// // 変数や引数の宣言時にUnion型を指定して、numberもしくはstringを受け付けることができる
+// // function printId(id: number | string) {
+// //   console.log(id);
+// // }
+// // // numberでも正常に動作する
+// // printId(11);
+// // // stringでも正常に動作する
+// // printId('22');
+// // type Id = number | string;
+// // function printId(id: Id) {
+// //   console.log(id);
+// // }
+// type Identity = {
+//   id: number | string;
+//   name: string;
+// }
+// type Contact = {
+//   name: string;
+//   email: string;
+//   phone: string;
+// }
+// // 和集合による新たなUnion型の定義
+// // Identity or Contactの型を受けることが加納
+// type IdentityOrContact = Identity | Contact
+// const id: IdentityOrContact = {
+//   id: '111',
+//   name: 'Takuya'
+// }
+// const contact: IdentityOrContact = {
+//   name: 'Taku'
+//   email: 'test@gmail.com'
+//   phone: '0123'
+// }
+// リテラル型
+// let postStatus: 'draft' | 'published' | 'deleted';
+// postStatus = 'draft'; //OK
+// postStatus = 'drafts'; // NG
+// never型
+// enum PageType {
+//   ViewProfile,
+//   EditProfile,
+//   ChangePassword,
+// }
+// const getTitleText = (type: PageType) => {
+//   switch (type) {
+//     case PageType.ViewProfile:
+//       return 'Setting';
+//     case PageType.EditProfile:
+//       return 'Edit Profile';
+//     case PageType.ChangePassword:
+//       return 'Change Password';
+//     default:
+//       // 決して起きないことをコンパイラに伝えるnever型に代入を行う
+//       // これによって仮に将来PageTypeのenum型に定数が新規で追加された際に
+//       // コンパイル時にエラーが起きるためバグを未然に防ぐ対応を行うことができる
+//       const wrongType: never = type;
+//       throw new Error(`${wrongType} is not in PageType`);
+//   }
+// };
+// Optional Chaining
+// nullになりうるsocialというプロパティの型を定義する
+// interface User {
+//   name: string;
+//   social?: {
+//     facebook: boolean;
+//     twitter: boolean;
+//   };
+// }
+// let user: User;
+// user = { name: 'Tomo', social: { facebook: true, twitter: true } };
+// // trueが出力される
+// console.log(user.social?.facebook);
+// user = { name: 'Tomo' };
+// // socialが存在しないケースでも以下のコードは実行時エラーにならない
+// console.log(user.social?.facebook);
+// 型ガード
+function addOne(value) {
+    if (typeof value === 'string') {
+        return Number(value) + 1;
+    }
+    return value + 100;
 }
-// numberでも正常に動作する
-printId(11);
-// stringでも正常に動作する
-printId('22');
-function printId(id) {
-    console.log(id);
-}
+console.log(addOne(10)); // 11
+console.log(addOne('20'));
