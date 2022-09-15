@@ -11,6 +11,7 @@ import Counter from './components/Counter';
 import CounterR from './components/CounterR';
 import { Parent } from './components/useCallback';
 //import { Parent } from './components/Parent';
+import { UseMemoSample } from './components/UseMemoSample';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,10 +21,11 @@ root.render(
     {/* <App /> */}
     {/* <Hello /> */}
     {/* <Message /> */}
-    <Parent />
+    {/* <Parent /> */}
     {/* <Page /> */}
     {/* <Counter initialValue={0} /> */}
     {/* <CounterR initialValue={0} /> */}
+    <UseMemoSample />
   </React.StrictMode>
 );
 
