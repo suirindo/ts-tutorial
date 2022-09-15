@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import App from './App';
 import Hello from './components/Hello';
 import reportWebVitals from './reportWebVitals';
+import Message from './components/Message';
+// import Parent from './components/ContainerSample';
+import Page from './components/ContainerSample';
+import Counter from './components/Counter';
+import CounterR from './components/CounterR';
+import { Parent } from './components/useCallback';
+//import { Parent } from './components/Parent';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +18,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <Hello />
+    {/* <Hello /> */}
+    {/* <Message /> */}
+    <Parent />
+    {/* <Page /> */}
+    {/* <Counter initialValue={0} /> */}
+    {/* <CounterR initialValue={0} /> */}
   </React.StrictMode>
 );
 
