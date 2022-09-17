@@ -12,6 +12,8 @@ import CounterR from './components/CounterR';
 import { Parent } from './components/useCallback';
 //import { Parent } from './components/Parent';
 import { UseMemoSample } from './components/UseMemoSample';
+import { Clock } from './components/Clock';
+import { ImageUpLoader } from './components/useRef';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -25,7 +27,9 @@ root.render(
     {/* <Page /> */}
     {/* <Counter initialValue={0} /> */}
     {/* <CounterR initialValue={0} /> */}
-    <UseMemoSample />
+    {/* <UseMemoSample /> */}
+    {/* <Clock /> */}
+    <ImageUpLoader />
   </React.StrictMode>
 );
 
