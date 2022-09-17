@@ -9,11 +9,13 @@ import Message from './components/Message';
 import Page from './components/ContainerSample';
 import Counter from './components/Counter';
 import CounterR from './components/CounterR';
-import { Parent } from './components/useCallback';
+// import { Parent } from './components/useCallback';
 //import { Parent } from './components/Parent';
 import { UseMemoSample } from './components/UseMemoSample';
 import { Clock } from './components/Clock';
 import { ImageUpLoader } from './components/useRef';
+import { Parent } from './components/useImperativeHandle';
+import { Input } from './components/customHuck';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -29,7 +31,8 @@ root.render(
     {/* <CounterR initialValue={0} /> */}
     {/* <UseMemoSample /> */}
     {/* <Clock /> */}
-    <ImageUpLoader />
+    {/* <ImageUpLoader /> */}
+    <Input />
   </React.StrictMode>
 );
 
