@@ -15,8 +15,8 @@ const signout = async (context: ApiContext): Promise<{ message: string }> => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-    }
-  );
-};
+    },
+  )
+}
 
-export default signout;
+export default signout
