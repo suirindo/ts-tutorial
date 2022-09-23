@@ -8,8 +8,7 @@
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
-    "plugin:import/typescript",
-    "next/core-web-vitals"
+    "plugin:import/typescript"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
@@ -25,5 +24,10 @@
         "tabWidth": 2
       }
     ]
-  }
+  },
+  "settings": {
+  "import/resolver": {
+     "typescript": { "project": "./" }
+}
+}
 }
